@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import {ContextDevicesProvider} from "./contexts";
 import {UserDevices} from "../call/user-devices";
 

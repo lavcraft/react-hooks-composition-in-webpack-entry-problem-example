@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import * as React from "react";
 
 import {enableStaticRendering} from "mobx-react-lite";
 import {Manager} from "../call/manager";
@@ -8,7 +8,7 @@ import {VoximplantCall} from "../vox";
 
 enableStaticRendering(typeof window === 'undefined')
 
-export function withCallManager(Component: FC) {
+export function withCallManager(Component: React.FC) {
     const store = Manager.getObserved();
     if (typeof window !== 'undefined') {
         // @ts-ignore
