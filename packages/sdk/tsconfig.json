@@ -1,0 +1,56 @@
+{
+    "extends": "../../tsconfig.defaults.json",
+    "compilerOptions": {
+        "declarationDir": "./lib-sdk",
+        "allowJs": true,
+        "alwaysStrict": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "useDefineForClassFields": true,
+        "outDir": "./lib-sdk/esm",
+        "rootDir": "./src",
+        "baseUrl": "./src",
+        "declaration": true,
+        "composite": true,
+        "types": [
+            "jest"
+        ],
+        "lib": [
+            "dom",
+            "es2017",
+            "esnext.intl",
+            "es2017.intl",
+            "es2018.intl",
+            "es2019"
+        ],
+        "paths": {
+            "@shared/*": ["../../shared/src/*"],
+            "@services/*": ["./services/*"],
+            "@vk/*": ["./vk/*"]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "signaling",
+        "dist",
+        "build",
+        "rollup.config.js",
+        "rollup.config.ts",
+        "lib-sdk",
+        "**/*.test.ts"
+    ],
+    "include": [
+        "**/*.ts",
+        "**/*.d.ts"
+    ],
+    "references": [
+        {"path": "../shared"}
+    ]
+}

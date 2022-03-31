@@ -1,0 +1,18 @@
+{
+    "extends": "../../tsconfig.defaults.json",
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "rootDir": "./src",
+        "outDir": "./build",
+        "composite": true,
+        "declaration": true
+    },
+    "exclude": [
+        "./build",
+        "**/*.test.ts"
+    ],
+    "include": [
+        "**/*.ts",
+        "**/*.d.ts"
+    ],
+}

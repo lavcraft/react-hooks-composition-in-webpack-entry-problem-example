@@ -1,0 +1,29 @@
+{
+    "name": "speaker-room-tools",
+    "scripts": {
+        "all:start": "./dev-start-all.sh",
+        "ui:dev": "npm run dev -w @company/ui",
+        "ui:clean": "npm run clean -w @company/ui",
+        "ui:start": "npm start -w @company/ui",
+        "ui:no_telemetry": "npm run no_telemetry -w @company/ui",
+        "ui:build": "npm run build -w @company/ui",
+        "ui:test": "npm run test -w @company/ui",
+        "ui:analyze": "npm run analyze -w @company/ui",
+
+        "sdk:build": "npm run build -w @company/sdk",
+        "sdk:test": "npm run test -w @company/sdk",
+        "sdk:dev": "npm run dev -w @company/sdk",
+        "sdk:version": "npm run version -w @company/sdk",
+        "sdk:publish": "npm run publish -w @company/sdk",
+        "sdk:clean": "npm run clean -w @company/sdk",
+
+        "shared:clean": "npm run clean -w @company/shared",
+
+        "preui:build": "npm run build -w @company/sdk",
+
+        "clean": "npm run sdk:clean; npm run ui:clean; npm run backend:clean; npm run shared:clean"
+    },
+    "workspaces": [
+        "packages/*"
+    ]
+}

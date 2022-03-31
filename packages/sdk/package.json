@@ -1,0 +1,116 @@
+{
+    "name": "@company/sdk",
+    "version": "0.0.1",
+    "description": "SDK for share code with external projects and test on speaker-room-ui subproject",
+    "private": false,
+    "types": "lib-sdk/typings.d.ts",
+    "typings": "lib-sdk/typings.d.ts",
+    "scripts": {
+        "compile": "tsc --project tsconfig.json",
+        "build": "NODE_ENV='production' webpack",
+        "wbuild": "tsc --build --verbose . && tsc-alias",
+        "wdev": "concurrently \"tsc --watch --project tsconfig.json\" \"tsc-alias -w\"",
+        "dev": "webpack --stats-error-details --watch",
+        "deprecated_build": "rollup -c rollup.config.js",
+        "deprecated_dev": "rollup -w -c rollup.config.js",
+        "test": "jest --silent --detectOpenHandles",
+        "clean": "rm -rf ./lib-sdk"
+    },
+    "publishConfig": {
+        "@online:registry": "https://gitlab.jugru.team/api/v4/projects/210/packages/npm/"
+    },
+    "devDependencies": {
+        "webpack": "^5.70.0",
+        "webpack-cli": "^4.9.2",
+        "tsconfig-paths-webpack-plugin": "^3.5.2",
+        "ts-loader": "^9.2.8",
+        "@testing-library/jest-dom": "^5.11.9",
+        "typescript": "^4.5.4"
+    },
+    "dependencies": {
+        "debounce": "^1.2.1"
+    },
+    "peerDependencies": {
+        "mobx": ">=6.4.2",
+        "mobx-react-lite": ">=3.3.0",
+        "mobx-utils": ">=6.0.4",
+        "react": ">=17.0.2",
+        "undici": ">=4.12.0",
+        "voximplant-websdk": ">=4.6.0-2340"
+    },
+    "files": [
+        "lib-sdk/**/*"
+    ],
+    "exports": {
+        "./hardware/*": {
+            "import": "./lib-sdk/hardware/*.esm.js",
+            "require": "./lib-sdk/cjs/hardware/*.js"
+        },
+        "./call": {
+            "import": "./lib-sdk/call/index.esm.js",
+            "require": "./lib-sdk/cjs/call/index.js"
+        },
+        "./call/*": {
+            "import": "./lib-sdk/call/*.esm.js",
+            "require": "./lib-sdk/cjs/call/*.js"
+        },
+        "./vox/*": {
+            "import": "./lib-sdk/vox/*.esm.js",
+            "require": "./lib-sdk/cjs/vox/*.js"
+        },
+        "./vox": {
+            "import": "./lib-sdk/vox/index.esm.js",
+            "require": "./lib-sdk/cjs/vox/index.js"
+        },
+        "./vk/*": {
+            "import": "./lib-sdk/vk/*.esm.js",
+            "require": "./lib-sdk/cjs/vk/*.js"
+        },
+        "./vk": {
+            "import": "./lib-sdk/vk/index.esm.js",
+            "require": "./lib-sdk/cjs/vk/index.js"
+        },
+        "./utils": {
+            "import": "./lib-sdk/utils/index.esm.js",
+            "require": "./lib-sdk/utils/indexesm..js"
+        },
+        "./utils/*": {
+            "import": "./lib-sdk/utils/*.esm.js",
+            "require": "./lib-sdk/cjs/utils/*.js"
+        },
+        "./media": {
+            "import": "./lib-sdk/media/index.esm.js",
+            "require": "./lib-sdk/cjs/media/index.js"
+        },
+        "./media/*": {
+            "import": "./lib-sdk/media/*.esm.js",
+            "require": "./lib-sdk/cjs/media/*.js"
+        },
+        "./store/*": {
+            "import": "./lib-sdk/store/*.esm.js",
+            "require": "./lib-sdk/cjs/store/*.js"
+        },
+        "./domain/*": {
+            "import": "./lib-sdk/domain/*.esm.js",
+            "require": "./lib-sdk/cjs/domain/*.js"
+        },
+        "./services/*": {
+            "import": "./lib-sdk/services/*.esm.js",
+            "require": "./lib-sdk/cjs/services/*.js"
+        },
+        "./internal/*": {
+            "import": "./lib-sdk/internal/*.esm.js",
+            "require": "./lib-sdk/cjs/internal/*.js"
+        },
+        "./package.json": "./package.json",
+        "./typings.d.ts": "./typings.d.ts"
+    },
+    "typesVersions": {
+        "*": {
+            "*": [
+                "lib-sdk/*",
+                "lib-sdk/*/index.d.ts"
+            ]
+        }
+    }
+}

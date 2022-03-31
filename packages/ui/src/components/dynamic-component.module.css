@@ -1,0 +1,6 @@
+.container {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: flex-start;
+    grid-gap: 1em;
+}

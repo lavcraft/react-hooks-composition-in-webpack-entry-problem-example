@@ -1,0 +1,15 @@
+/lib
+/lib-sdk
+/dist
+.npmrc
+
+/hardware/
+/types/
+/domain/
+/media/
+/services/
+/store/
+/utils/
+/webrtc/
+/tsconfig.tsbuildinfo
+/.rollup.cache

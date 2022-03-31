@@ -1,0 +1,53 @@
+{
+    "extends": "../../tsconfig.defaults.json",
+    "compilerOptions": {
+        "rootDir": "./src",
+        "baseUrl": "./src",
+        "outDir": "lib",
+        "jsx": "preserve",
+        "noEmit": true,
+        "useDefineForClassFields": true,
+        "typeRoots": [
+            "../../node_modules/@types",
+            "src/types",
+            "types"
+        ],
+        "lib": [
+            "dom",
+            "es2017",
+            "esnext.intl",
+            "es2017.intl",
+            "es2018.intl",
+            "es2019"
+        ],
+        "paths": {
+          "@models/*": ["components/models/*"],
+          "@services/*": ["services/*"],
+          "@db/*": ["db/*"],
+          "@lib/*": ["lib/*"],
+          "@store/*": ["store/*"],
+          "@domain/*": ["domain/*"],
+          "@components/*": ["components/*"],
+          "@styles/*": ["styles/*"],
+          "@util/*": ["util/*"],
+          "@actions/*": ["actions/*"],
+          "@webrtc/*": ["webrtc/*"],
+          "@config/*": ["config/*"],
+          "@sp-types/*": ["types/*"],
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "packages",
+        ".next",
+        "build"
+    ],
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.d.ts",
+    ],
+    "references": [
+        {"path": "../shared"}
+    ]
+}

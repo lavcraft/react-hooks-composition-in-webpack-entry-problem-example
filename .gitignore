@@ -1,0 +1,49 @@
+# Logs
+logs
+*.log
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+.npmrc
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+
+# Next.js build output
+.next
+out/
+
+# Jetbrains
+.idea
+
+# DB
+*.sqlite
+
+# misc
+.DS_Store
+packages/speaker-room-ui/.env.local
+packages/speaker-room-ui/.env.test
+packages/speaker-room-ui/.env.development.local
+packages/speaker-room-ui/.env.test.local
+packages/speaker-room-ui/.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+/build
+/packages/*/build
+/packages/*/*.tsbuildinfo
+*.tsbuildinfo
