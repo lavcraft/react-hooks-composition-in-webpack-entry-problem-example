@@ -50,5 +50,6 @@ To be continued...
 ## Related Materials and Discussions
 
 1. [React repo issue](https://github.com/facebook/react/issues/24230#issuecomment-1084470436)
-2. [Gitter react related thread](https://gitter.im/chat-rooms/reactjs?at=624569f78db2b95f0a92c860)
-3. [Gitter webpack related thread](https://gitter.im/webpack/webpack?at=624598776b912423205dd681)
+2. [Webpack repo issue](https://github.com/webpack/webpack/issues/15605)
+3. [Gitter react related thread](https://gitter.im/chat-rooms/reactjs?at=624569f78db2b95f0a92c860)
+4. [Gitter webpack related thread](https://gitter.im/webpack/webpack?at=624598776b912423205dd681)
