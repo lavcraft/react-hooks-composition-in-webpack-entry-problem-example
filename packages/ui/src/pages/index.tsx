@@ -11,7 +11,8 @@ import dynamic from "next/dynamic";
 type Props = {};
 const OnlyClientSide = dynamic<Props>(
     () => import('@components/dynamic-component')
-        .then(value => value) as any,
+        .then(value => value)
+        .catch(r => console.error(`error while import component which used useDevices/withDevices and useCall/withCall: ${r}`, r)) as any,
     {
         ssr: false,
         loading: () => <p>Loading...</p>,

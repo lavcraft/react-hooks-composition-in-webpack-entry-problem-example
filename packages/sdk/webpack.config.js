@@ -15,6 +15,9 @@ function files(dir = '.', exclude = ['__tests__']) {
 
 module.exports = {
     mode: process.env.NODE_ENV ?? 'development',
+    experiments: {
+        outputModule: true
+    },
     entry: {
         'vox/index': './src/vox/index.ts',
         'store/contexts': './src/store/contexts.ts',
@@ -56,12 +59,13 @@ module.exports = {
         'mobx': 'mobx',
         'mobx-react-lite': 'mobx-react-lite',
         'voximplant-websdk': 'voximplant-websdk',
-        react: {
-            commonjs: "react",
-            commonjs2: "react",
-            amd: "React",
-            root: "React"
-        },
+        'react': 'react',
+        // react: {
+        //     commonjs: "react",
+        //     commonjs2: "react",
+        //     amd: "React",
+        //     root: "React"
+        // },
     },
     resolve: {
         modules: [
@@ -77,7 +81,7 @@ module.exports = {
         path: path.resolve(__dirname, 'lib-sdk'),
         globalObject: 'this',
         library: {
-            type: 'umd',
+            type: 'module',
         },
     },
 };
