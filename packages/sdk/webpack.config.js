@@ -22,7 +22,7 @@ module.exports = {
         'store/devices': {
             import: './src/store/devices.ts',
             dependOn: 'store/contexts', /*chunkLoading: false,*/
-            library: {type: 'umd'}
+            library: {type: 'this'}
         },
         // 'store/call': {import: './src/store/call.ts', dependOn: 'store/contexts', /*chunkLoading: false,*/},
     },
