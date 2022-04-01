@@ -1,11 +1,10 @@
-import {Hardware} from 'voximplant-websdk';
-import {CallApi} from "../call/api";
-
+// import {Hardware} from 'voximplant-websdk';
+import type {CallApi} from "../call/api";
 
 export class VoximplantCall implements CallApi {
 
     constructor() {
-        console.log(`voximplant hardware:`, Hardware);
+        // console.log(`voximplant hardware:`, Hardware);
     }
 
     join(): void {

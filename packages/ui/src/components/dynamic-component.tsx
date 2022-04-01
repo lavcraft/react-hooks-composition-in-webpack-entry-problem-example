@@ -1,9 +1,14 @@
 import * as React from 'react'
 import {useDevices, withDevices} from '@company/sdk/store/devices';
 import {useCall, withCallManager} from '@company/sdk/store/call';
+// import * as D from '@company/sdk/store/devices';
+// import * as T from '@company/sdk/store/call';
 import styles from './dynamic-component.module.css';
 
 type Props = {}
+
+// console.log(`withCallManager:`, T.withCallManager);
+// console.log(`call module:`, T);
 
 const DynamicComponent: React.FunctionComponent<Props> = () => {
     const devices = useDevices();

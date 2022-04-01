@@ -25,7 +25,7 @@
         "tsconfig-paths-webpack-plugin": "^3.5.2",
         "ts-loader": "^9.2.8",
         "@testing-library/jest-dom": "^5.11.9",
-        "typescript": "^4.5.4"
+        "typescript": "^4.6.3"
     },
     "dependencies": {
         "debounce": "^1.2.1"
@@ -42,65 +42,9 @@
         "lib-sdk/**/*"
     ],
     "exports": {
-        "./hardware/*": {
-            "import": "./lib-sdk/hardware/*.esm.js",
-            "require": "./lib-sdk/cjs/hardware/*.js"
-        },
-        "./call": {
-            "import": "./lib-sdk/call/index.esm.js",
-            "require": "./lib-sdk/cjs/call/index.js"
-        },
-        "./call/*": {
-            "import": "./lib-sdk/call/*.esm.js",
-            "require": "./lib-sdk/cjs/call/*.js"
-        },
-        "./vox/*": {
-            "import": "./lib-sdk/vox/*.esm.js",
-            "require": "./lib-sdk/cjs/vox/*.js"
-        },
-        "./vox": {
-            "import": "./lib-sdk/vox/index.esm.js",
-            "require": "./lib-sdk/cjs/vox/index.js"
-        },
-        "./vk/*": {
-            "import": "./lib-sdk/vk/*.esm.js",
-            "require": "./lib-sdk/cjs/vk/*.js"
-        },
-        "./vk": {
-            "import": "./lib-sdk/vk/index.esm.js",
-            "require": "./lib-sdk/cjs/vk/index.js"
-        },
-        "./utils": {
-            "import": "./lib-sdk/utils/index.esm.js",
-            "require": "./lib-sdk/utils/indexesm..js"
-        },
-        "./utils/*": {
-            "import": "./lib-sdk/utils/*.esm.js",
-            "require": "./lib-sdk/cjs/utils/*.js"
-        },
-        "./media": {
-            "import": "./lib-sdk/media/index.esm.js",
-            "require": "./lib-sdk/cjs/media/index.js"
-        },
-        "./media/*": {
-            "import": "./lib-sdk/media/*.esm.js",
-            "require": "./lib-sdk/cjs/media/*.js"
-        },
         "./store/*": {
             "import": "./lib-sdk/store/*.esm.js",
             "require": "./lib-sdk/cjs/store/*.js"
-        },
-        "./domain/*": {
-            "import": "./lib-sdk/domain/*.esm.js",
-            "require": "./lib-sdk/cjs/domain/*.js"
-        },
-        "./services/*": {
-            "import": "./lib-sdk/services/*.esm.js",
-            "require": "./lib-sdk/cjs/services/*.js"
-        },
-        "./internal/*": {
-            "import": "./lib-sdk/internal/*.esm.js",
-            "require": "./lib-sdk/cjs/internal/*.js"
         },
         "./package.json": "./package.json",
         "./typings.d.ts": "./typings.d.ts"
@@ -109,7 +53,7 @@
         "*": {
             "*": [
                 "lib-sdk/*",
-                "lib-sdk/*/index.d.ts"
+                "lib-sdk/store/*.d.ts"
             ]
         }
     }

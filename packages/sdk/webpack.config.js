@@ -14,32 +14,19 @@ function files(dir = '.', exclude = ['__tests__']) {
 }
 
 module.exports = {
-    mode: process.env.NODE_ENV ?? 'development',
-    experiments: {
-        outputModule: true
-    },
+    mode: "development",
     entry: {
-        'vox/index': './src/vox/index.ts',
         'store/contexts': './src/store/contexts.ts',
-        'store/devices': './src/store/devices.ts',
+        // 'store/devices': './src/store/devices.ts',
         'store/call': './src/store/call.ts',
-
-        // 'store/call': {
-        //     dependOn: ['store/devices'],
-        //     import: './src/store/call.ts',
-        //     library: {
-        //         type: 'this',
-        //     }
-        // },
-
-        ...files('call'),
-        // ...files('domain'),
-        // ...files('vk'),
-        // ...files('media'),
-        // ...files('hardware'),
-        // ...files('utils'),
+        'store/devices': {
+            import: './src/store/devices.ts',
+            dependOn: 'store/contexts', /*chunkLoading: false,*/
+            library: {type: 'umd'}
+        },
+        // 'store/call': {import: './src/store/call.ts', dependOn: 'store/contexts', /*chunkLoading: false,*/},
     },
-    devtool: 'inline-source-map',
+    devtool: false,
     module: {
         rules: [
             {
@@ -48,6 +35,7 @@ module.exports = {
                 use: {
                     loader: "ts-loader",
                     options: {
+                        // transpileOnly: true,
                         projectReferences: true
                     }
                 }
@@ -60,12 +48,6 @@ module.exports = {
         'mobx-react-lite': 'mobx-react-lite',
         'voximplant-websdk': 'voximplant-websdk',
         'react': 'react',
-        // react: {
-        //     commonjs: "react",
-        //     commonjs2: "react",
-        //     amd: "React",
-        //     root: "React"
-        // },
     },
     resolve: {
         modules: [
@@ -76,12 +58,16 @@ module.exports = {
         extensions: ['.ts', '.js'],
         plugins: [new TsconfigPathsPlugin()],
     },
+    optimization: {
+        minimize: false,
+        // runtimeChunk: 'single',
+    },
     output: {
         filename: '[name].esm.js',
         path: path.resolve(__dirname, 'lib-sdk'),
         globalObject: 'this',
         library: {
-            type: 'module',
+            type: 'umd',
         },
     },
-};
+}
