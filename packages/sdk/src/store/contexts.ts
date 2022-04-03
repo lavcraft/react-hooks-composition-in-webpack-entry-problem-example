@@ -1,12 +1,5 @@
 import * as React from "react";
-import {Manager} from "../call/manager";
-import {UserDevices} from "../call/user-devices";
-
-
-const [ContextDevicesProvider, useDevices] = createStrictContext<UserDevices>({
-    name: 'ContextDevices',
-    errorMessage: 'Use useDevices must be used only within withDevices',
-});
+import {Manager} from "@company/sdk-shared/call/manager";
 
 const [ContextCallManagerProvider, useCallManager] = createStrictContext<Manager>({
     name: 'ContextCallManager',
@@ -14,8 +7,6 @@ const [ContextCallManagerProvider, useCallManager] = createStrictContext<Manager
 });
 
 export {
-    ContextDevicesProvider,
-    useDevices,
     ContextCallManagerProvider,
     useCallManager,
 };

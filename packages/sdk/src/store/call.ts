@@ -1,9 +1,10 @@
 import * as React from "react";
 
 import {enableStaticRendering} from "mobx-react-lite";
-import {Manager} from "../call/manager";
-import {ContextCallManagerProvider, useCallManager, useDevices} from "./contexts";
-import {CallApi} from "../call/api";
+import {Manager} from "@company/sdk-shared/call/manager";
+import {CallApi} from "@company/sdk-shared/call/api";
+import {useDevices} from "@company/sdk-shared/react/devices";
+import {ContextCallManagerProvider, useCallManager} from "./contexts";
 import {VoximplantCall} from "../vox";
 import {SpeakerRoomApiResponseStatus} from "@shared/jrg/http-api";
 

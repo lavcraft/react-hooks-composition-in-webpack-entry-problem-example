@@ -1,5 +1,5 @@
 // import {Hardware} from 'voximplant-websdk';
-import type {CallApi} from "../call/api";
+import type {CallApi} from "@company/sdk-shared/call/api";
 
 export class VoximplantCall implements CallApi {
 

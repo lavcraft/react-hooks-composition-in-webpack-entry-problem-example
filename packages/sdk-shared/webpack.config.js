@@ -19,7 +19,8 @@ const base = {
     name: 'commonjs',
     mode: "development",
     entry: {
-        'store/call': './src/store/call.ts',
+        'react/devices': './src/react/devices.ts',
+        ...files('call'),
     },
     devtool: false,
     context: __dirname,
@@ -39,12 +40,9 @@ const base = {
         ],
     },
     externals: {
-        'undici': 'undici',
         'mobx': 'mobx',
         'mobx-react-lite': 'mobx-react-lite',
-        'voximplant-websdk': 'voximplant-websdk',
         'react': 'react',
-        "@company/sdk-shared/react/devices": "@company/sdk-shared/react/devices"
     },
     resolve: {
         modules: [

@@ -10,6 +10,10 @@
         "sdk:dev": "npm run dev -w @company/sdk",
         "sdk:clean": "npm run clean -w @company/sdk",
 
+        "sdk-shared:build": "npm run build -w @company/sdk-shared",
+        "sdk-shared:dev": "npm run dev -w @company/sdk-shared",
+        "sdk-shared:clean": "npm run clean -w @company/sdk-shared",
+
         "example:dev": "npm run dev -w @company/node-example",
         "example:build": "npm run build -w @company/node-example",
         "example:start": "npm run start -w @company/node-example",

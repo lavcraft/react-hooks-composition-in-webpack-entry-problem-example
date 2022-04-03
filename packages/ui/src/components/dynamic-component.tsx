@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {useDevices, withDevices} from '@company/sdk/store/devices';
+import {useDevices, withDevices} from '@company/sdk-shared/react/devices';
 import {useCall, withCallManager} from '@company/sdk/store/call';
 // import * as D from '@company/sdk/store/devices';
 // import * as T from '@company/sdk/store/call';
