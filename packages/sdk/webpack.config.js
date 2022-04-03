@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const merge = require('webpack-merge').merge;
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 
@@ -13,20 +14,22 @@ function files(dir = '.', exclude = ['__tests__']) {
         }, {})
 }
 
-module.exports = {
+/** @type {import('webpack').Configuration} */
+const base = {
+    name: 'commonjs',
     mode: "development",
     entry: {
-        'store/contexts': './src/store/contexts.ts',
-        // 'store/devices': './src/store/devices.ts',
-        'store/call': './src/store/call.ts',
         'store/devices': {
             import: './src/store/devices.ts',
-            dependOn: 'store/contexts', /*chunkLoading: false,*/
-            library: {type: 'this'}
+            dependOn: 'store/contexts',
         },
+        'store/call': './src/store/call.ts',
+        'store/contexts': './src/store/contexts.ts',
+        // 'store/devices': './src/store/devices.ts',
         // 'store/call': {import: './src/store/call.ts', dependOn: 'store/contexts', /*chunkLoading: false,*/},
     },
     devtool: false,
+    context: __dirname,
     module: {
         rules: [
             {
@@ -59,14 +62,27 @@ module.exports = {
     },
     optimization: {
         minimize: false,
-        // runtimeChunk: 'single',
     },
     output: {
-        filename: '[name].esm.js',
         path: path.resolve(__dirname, 'lib-sdk'),
         globalObject: 'this',
-        library: {
-            type: 'umd',
-        },
     },
 }
+
+const commonjs = {
+    name: 'commonjs',
+    output: {
+        filename: '[name].cjs.js',
+        libraryTarget: 'commonjs',
+    }
+}
+
+const umd = {
+    name: 'umd',
+    output: {
+        filename: '[name].esm.js',
+        libraryTarget: 'umd',
+    }
+}
+
+module.exports = [merge(base, commonjs), merge(base, umd)];

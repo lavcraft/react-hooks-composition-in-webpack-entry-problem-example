@@ -6,11 +6,16 @@
         "ui:dev": "npm run dev -w @company/ui",
         "ui:clean": "npm run clean -w @company/ui",
 
+        "sdk:build": "npm run build -w @company/sdk",
         "sdk:dev": "npm run dev -w @company/sdk",
         "sdk:clean": "npm run clean -w @company/sdk",
 
         "example:dev": "npm run dev -w @company/node-example",
+        "example:build": "npm run build -w @company/node-example",
+        "example:start": "npm run start -w @company/node-example",
+
         "shared:clean": "npm run clean -w @company/shared",
+        "shared:build": "npm run build -w @company/shared",
 
         "clean": "npm run sdk:clean; npm run ui:clean; npm run example:clean; npm run shared:clean"
     },

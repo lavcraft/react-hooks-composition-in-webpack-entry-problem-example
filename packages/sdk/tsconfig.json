@@ -6,7 +6,6 @@
         "alwaysStrict": true,
         "forceConsistentCasingInFileNames": true,
         "isolatedModules": true,
-
         "noFallthroughCasesInSwitch": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
@@ -20,6 +19,7 @@
         "declaration": true,
         "composite": true,
         "types": [
+            "node",
             "jest"
         ],
         "lib": [
@@ -31,9 +31,15 @@
             "es2019"
         ],
         "paths": {
-            "@shared/*": ["../../shared/src/*"],
-            "@services/*": ["./services/*"],
-            "@vk/*": ["./vk/*"]
+            "@shared/*": [
+                "../../shared/src/*"
+            ],
+            "@services/*": [
+                "./services/*"
+            ],
+            "@vk/*": [
+                "./vk/*"
+            ]
         }
     },
     "exclude": [
@@ -41,7 +47,7 @@
         "signaling",
         "dist",
         "build",
-        "rollup.config.js",
+        "rollup.config.mjs",
         "rollup.config.ts",
         "lib-sdk",
         "**/*.test.ts"
@@ -51,6 +57,8 @@
         "**/*.d.ts"
     ],
     "references": [
-        {"path": "../shared"}
+        {
+            "path": "../shared"
+        }
     ]
 }

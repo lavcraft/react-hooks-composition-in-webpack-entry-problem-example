@@ -5,6 +5,7 @@ import {Manager} from "../call/manager";
 import {ContextCallManagerProvider, useCallManager, useDevices} from "./contexts";
 import {CallApi} from "../call/api";
 import {VoximplantCall} from "../vox";
+import {SpeakerRoomApiResponseStatus} from "@shared/jrg/http-api";
 
 enableStaticRendering(typeof window === 'undefined')
 
@@ -31,6 +32,8 @@ export function useCall(): CallApi {
 
     console.log(`manager:`, manager);
     console.log(`devices:`, devices);
+
+    console.log(`a:`, SpeakerRoomApiResponseStatus.error)
 
     let call = manager.getCall();
     if (!call) {

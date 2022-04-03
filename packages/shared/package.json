@@ -5,7 +5,7 @@
     "private": true,
     "scripts": {
         "compile": "tsc --project tsconfig.json",
-        "build": "tsc --build --verbose . && tsc-alias",
+        "build": "tsc --build",
         "dev": "concurrently \"tsc --watch --project tsconfig.json\" \"tsc-alias -w\"",
         "clean": "rm -rf ./build; rm ./tsconfig.tsbuildinfo || echo"
     },
@@ -23,23 +23,5 @@
     },
     "peerDependencies": {
         "undici": "^5.0.0"
-    },
-    "files": [
-        "build/**/*"
-    ],
-    "exports": {
-        "./*": {
-            "import": "./build/*.js",
-            "require": "./build/*.js"
-        },
-        "./package.json": "./package.json"
-    },
-    "typesVersions": {
-        "*": {
-            "*": [
-                "build/*",
-                "build/*/index.d.ts"
-            ]
-        }
     }
 }

@@ -2,7 +2,7 @@ import * as React from "react";
 import {ContextDevicesProvider, useDevices} from "./contexts";
 import {UserDevices} from "../call/user-devices";
 
-export function withDevices(Component: React.FunctionComponent<any>) {
+function withDevices(Component: React.FunctionComponent<any>) {
     const store = UserDevices.getObserved();
 
     if (typeof window !== 'undefined') {
@@ -21,5 +21,6 @@ export function withDevices(Component: React.FunctionComponent<any>) {
 }
 
 export {
+    withDevices,
     useDevices,
 };

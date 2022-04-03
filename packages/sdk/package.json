@@ -6,25 +6,20 @@
     "types": "lib-sdk/typings.d.ts",
     "typings": "lib-sdk/typings.d.ts",
     "scripts": {
-        "compile": "tsc --project tsconfig.json",
         "build": "NODE_ENV='production' webpack",
-        "wbuild": "tsc --build --verbose . && tsc-alias",
-        "wdev": "concurrently \"tsc --watch --project tsconfig.json\" \"tsc-alias -w\"",
         "dev": "webpack --stats-error-details --watch",
-        "deprecated_build": "rollup -c rollup.config.js",
-        "deprecated_dev": "rollup -w -c rollup.config.js",
-        "test": "jest --silent --detectOpenHandles",
         "clean": "rm -rf ./lib-sdk"
     },
     "publishConfig": {
         "@online:registry": "https://gitlab.jugru.team/api/v4/projects/210/packages/npm/"
     },
     "devDependencies": {
+        "@types/node": "^17.0.23",
         "webpack": "^5.70.0",
         "webpack-cli": "^4.9.2",
+        "webpack-merge": "^5.8.0",
         "tsconfig-paths-webpack-plugin": "^3.5.2",
         "ts-loader": "^9.2.8",
-        "@testing-library/jest-dom": "^5.11.9",
         "typescript": "^4.6.3"
     },
     "dependencies": {
@@ -44,7 +39,7 @@
     "exports": {
         "./store/*": {
             "import": "./lib-sdk/store/*.esm.js",
-            "require": "./lib-sdk/cjs/store/*.js"
+            "require": "./lib-sdk/store/*.cjs.js"
         },
         "./package.json": "./package.json",
         "./typings.d.ts": "./typings.d.ts"
