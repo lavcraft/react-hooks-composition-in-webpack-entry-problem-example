@@ -1,0 +1,24 @@
+{
+    "name": "node-example",
+    "version": "0.0.1",
+    "description": "Node example for consume shared and sdk subprojects",
+    "private": true,
+    "scripts": {
+        "build": "tsc .",
+        "dev": "tsc --watch .",
+        "clean": "rm -rf ./build"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.23",
+    },
+    "dependencies": {
+        "debounce": "^1.2.1",
+        "@company/sdk": "*"
+    },
+    "peerDependencies": {
+        "undici": ">=4.12.0"
+    },
+    "files": [
+        "build/**/*"
+    ]
+}
