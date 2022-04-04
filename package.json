@@ -21,7 +21,7 @@
         "shared:clean": "npm run clean -w @company/shared",
         "shared:build": "npm run build -w @company/shared",
 
-        "clean": "npm run sdk:clean; npm run ui:clean; npm run example:clean; npm run shared:clean"
+        "clean": "npm run sdk:clean; npm run sdk-shared:clean && npm run ui:clean; npm run node-example:clean; npm run shared:clean"
     },
     "workspaces": [
         "packages/*"
