@@ -1,5 +1,5 @@
 {
-    "name": "node-example",
+    "name": "@company/node-example",
     "version": "0.0.1",
     "description": "Node example for consume shared and sdk subprojects",
     "private": true,
