@@ -9,6 +9,7 @@
     "dependencies": {
         "@company/sdk": "*",
         "@company/shared": "*",
+        "next": "^12.1.4",
         "debounce": "^1.2.1",
         "mobx": "^6.4.2",
         "mobx-react-lite": "^3.3.0",
