@@ -55,3 +55,5 @@ To be continued...
 4. [Gitter react related thread](https://gitter.im/chat-rooms/reactjs?at=624569f78db2b95f0a92c860)
 5. [Gitter webpack related thread](https://gitter.im/webpack/webpack?at=624598776b912423205dd681)
 6. [Telegram conversation in Webpack RU](https://t.me/webpack_ru/97680)
+7. [Stackoverflow question](https://stackoverflow.com/questions/71744221/cant-create-npm-package-with-nested-react-hooks-via-webpack)
+8. [next.js discussion](https://github.com/vercel/next.js/discussions/35880)
