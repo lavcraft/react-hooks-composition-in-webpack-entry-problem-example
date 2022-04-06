@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {useDevices, withDevices} from '@company/sdk/store/devices';
-import {useCall, withCallManager} from '@company/sdk/store/call';
+import {useDevices, withDevices} from '@company/sdk';
+import {useCall, withCallManager} from '@company/sdk';
 // import * as D from '@company/sdk/store/devices';
 // import * as T from '@company/sdk/store/call';
 import styles from './dynamic-component.module.css';

@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const merge = require('webpack-merge').merge;
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 
@@ -13,17 +14,24 @@ function files(dir = '.', exclude = ['__tests__']) {
         }, {})
 }
 
-module.exports = {
+/** @type {import('webpack').Configuration} */
+const base = {
     mode: "development",
     entry: {
-        'store/contexts': './src/store/contexts.ts',
+        'index': './src/store/index.ts',
+        // 'index': [
+        //     './src/store/contexts.ts',
+        //     './src/store/devices.ts',
+        //     './src/store/call.ts',
+        // ],
+        // 'store/': './src/store/contexts.ts',
         // 'store/devices': './src/store/devices.ts',
-        'store/call': './src/store/call.ts',
-        'store/devices': {
-            import: './src/store/devices.ts',
-            dependOn: 'store/contexts', /*chunkLoading: false,*/
-            library: {type: 'this'}
-        },
+        // 'store/call': './src/store/call.ts',
+        // 'store/devices': {
+        //     import: './src/store/devices.ts',
+        //     dependOn: 'store/contexts', /*chunkLoading: false,*/
+        //     // library: {type: 'this'}
+        // },
         // 'store/call': {import: './src/store/call.ts', dependOn: 'store/contexts', /*chunkLoading: false,*/},
     },
     devtool: false,
@@ -44,10 +52,10 @@ module.exports = {
     },
     externals: {
         'undici': 'undici',
-        'mobx': 'mobx',
-        'mobx-react-lite': 'mobx-react-lite',
+        'mobx': 'commonjs mobx',
+        'mobx-react-lite': 'commonjs mobx-react-lite',
         'voximplant-websdk': 'voximplant-websdk',
-        'react': 'react',
+        'react': 'commonjs react',
     },
     resolve: {
         modules: [
@@ -62,11 +70,25 @@ module.exports = {
         // runtimeChunk: 'single',
     },
     output: {
-        filename: '[name].esm.js',
         path: path.resolve(__dirname, 'lib-sdk'),
         globalObject: 'this',
-        library: {
-            type: 'umd',
-        },
     },
 }
+
+const commonjs = {
+    name: 'commonjs',
+    output: {
+        filename: '[name].cjs.js',
+        libraryTarget: 'commonjs',
+    }
+}
+
+const umd = {
+    name: 'umd',
+    output: {
+        filename: '[name].esm.js',
+        libraryTarget: 'this',
+    }
+}
+
+module.exports = [merge(base, commonjs), merge(base, umd)];

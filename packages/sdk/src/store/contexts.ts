@@ -32,7 +32,8 @@ function createStrictContext<T>(
 
     function useContext() {
         const context = React.useContext(Context);
-        console.trace(`look at ${options.name}:`, context);
+        // @ts-ignore
+        console.trace(`look at ${options.name}[${context?.id ?? ''}]:`, context);
         if (context === undefined) {
             throw new Error(
                 options.errorMessage || `${options.name || ''} Context Provider is missing`

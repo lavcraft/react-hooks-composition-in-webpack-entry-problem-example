@@ -6,6 +6,7 @@
         "ui:dev": "npm run dev -w @company/ui",
         "ui:clean": "npm run clean -w @company/ui",
 
+        "sdk:build": "npm run build -w @company/sdk",
         "sdk:dev": "npm run dev -w @company/sdk",
         "sdk:clean": "npm run clean -w @company/sdk",
 
