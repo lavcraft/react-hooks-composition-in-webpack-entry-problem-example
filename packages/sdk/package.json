@@ -43,8 +43,8 @@
     ],
     "exports": {
         "./store/*": {
-            "import": "./lib-sdk/store/*.esm.js",
-            "require": "./lib-sdk/cjs/store/*.js"
+            "import": "./lib-sdk/store/*.cjs.js",
+            "require": "./lib-sdk/store/*.cjs.js"
         },
         "./package.json": "./package.json",
         "./typings.d.ts": "./typings.d.ts"

@@ -13,18 +13,18 @@ function files(dir = '.', exclude = ['__tests__']) {
         }, {})
 }
 
-module.exports = {
+const base = {
     mode: "development",
     entry: {
         'store/contexts': './src/store/contexts.ts',
-        // 'store/devices': './src/store/devices.ts',
-        'store/call': './src/store/call.ts',
+        'store/call': {
+            import: './src/store/call.ts',
+            dependOn: 'store/contexts',
+        },
         'store/devices': {
             import: './src/store/devices.ts',
-            dependOn: 'store/contexts', /*chunkLoading: false,*/
-            library: {type: 'this'}
+            dependOn: 'store/contexts',
         },
-        // 'store/call': {import: './src/store/call.ts', dependOn: 'store/contexts', /*chunkLoading: false,*/},
     },
     devtool: false,
     module: {
@@ -62,11 +62,13 @@ module.exports = {
         // runtimeChunk: 'single',
     },
     output: {
-        filename: '[name].esm.js',
+        filename: '[name].cjs.js',
         path: path.resolve(__dirname, 'lib-sdk'),
-        globalObject: 'this',
+        globalObject: `(typeof window==='undefined'?global:window)`,
         library: {
-            type: 'umd',
+            type: "commonjs"
         },
     },
 }
+
+module.exports = base;
