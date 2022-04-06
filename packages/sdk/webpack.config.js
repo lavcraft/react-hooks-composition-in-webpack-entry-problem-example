@@ -14,25 +14,53 @@ function files(dir = '.', exclude = ['__tests__']) {
         }, {})
 }
 
+/**
+ * Please read some explanation in comments. It's my investigations and can help you to better understanding
+ */
+
 /** @type {import('webpack').Configuration} */
 const base = {
     mode: "development",
     entry: {
-        'index': './src/store/index.ts',
+        'store/contexts': './src/store/contexts.ts',
+
+        /**
+         * works, but can't load useDevices and useCall separately (It's important for tree shaking and SSR)
+         */
+        // 'index': './src/store/index.ts',
+
+        /**
+         * doesn't work, can't import. Work only combine both store/* into index.ts with reexport
+         */
         // 'index': [
         //     './src/store/contexts.ts',
         //     './src/store/devices.ts',
         //     './src/store/call.ts',
         // ],
-        // 'store/': './src/store/contexts.ts',
-        // 'store/devices': './src/store/devices.ts',
-        // 'store/call': './src/store/call.ts',
+
+        /**
+         * in this variant, useDevices return undefined when called inside useCall
+         * component
+         *   useDevices() <-- return store
+         *   useCall()    <-- return store
+         *     useDevices() <-- return undefined. Problem are here
+         */
+        'store/devices': './src/store/devices.ts',
+        'store/call': './src/store/call.ts',
+
+        /**
+         * After add dependOn, module start producing strange structure like
+         *      webpackChunk_company_sdk: [Array(3)]
+         * without any exported functions. Hmm.. Why?
+         */
         // 'store/devices': {
         //     import: './src/store/devices.ts',
-        //     dependOn: 'store/contexts', /*chunkLoading: false,*/
-        //     // library: {type: 'this'}
+        //     dependOn: 'store/contexts',
         // },
-        // 'store/call': {import: './src/store/call.ts', dependOn: 'store/contexts', /*chunkLoading: false,*/},
+        // 'store/call': {
+        //     import: './src/store/call.ts',
+        //     dependOn: ['store/contexts', 'store/devices'],
+        // },
     },
     devtool: false,
     module: {

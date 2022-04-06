@@ -7,14 +7,16 @@ import dynamic from "next/dynamic";
  * This cause problem, because voximplant-websdk npm package not supported import without window object
  */
 // import { useCall } from '@company/sdk/store/call';
-
-//TODO Can't load this, because import contained call files produce import error while SSR
-// import * as T from '@company/sdk';
-// import * as C from '@company/sdk';
-//
+// import * as C from '@company/sdk/store/call';
 // console.log(`contexts:`, C);
-// console.log(`devices module:`, T);
-// console.log(`devices.withDevices:`, T.withDevices);
+
+/**
+ * But you can load devices independently
+ */
+import * as T from '@company/sdk/store/devices';
+
+console.log(`devices module:`, T);
+console.log(`devices.withDevices:`, T.withDevices);
 
 type Props = {};
 const OnlyClientSide = dynamic<Props>(
