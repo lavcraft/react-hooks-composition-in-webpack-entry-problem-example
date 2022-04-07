@@ -9,7 +9,11 @@ import dynamic from "next/dynamic";
 // import { useCall } from '@company/sdk/store/call';
 import * as T from '@company/sdk/store/devices';
 import * as C from '@company/sdk/store/contexts';
-
+import * as a from '@company/sdk/store/a-module';
+import * as b from '@company/sdk/store/b-module';
+//
+console.log(`a:`, a);
+console.log(`b:`, b);
 console.log(`contexts:`, C);
 console.log(`devices module:`, T);
 console.log(`devices.withDevices:`, T.withDevices);
